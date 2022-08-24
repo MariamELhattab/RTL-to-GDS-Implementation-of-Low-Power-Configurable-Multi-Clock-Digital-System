@@ -1,0 +1,25 @@
+m255
+K3
+13
+cModel Technology
+Z0 dC:\altera\13.0sp1
+vRegFile
+!i10b 1
+!s100 l^Zb@[d:Ki<nUEfAjPQLG2
+I<i>zgJaH>VQ?AD;Ql3MjJ3
+V9@c9SD26bfLMeTkNcCaLQ3
+dC:\Users\Compume\Desktop\Digital Design\RTL-to-GDS-Implementation-of-Low-Power-Configurable-Multi-Clock-Digital-System\RTL\RegFile
+w1661373958
+8C:/Users/Compume/Desktop/Digital Design/RTL-to-GDS-Implementation-of-Low-Power-Configurable-Multi-Clock-Digital-System/RTL/RegFile/RegFile.v
+FC:/Users/Compume/Desktop/Digital Design/RTL-to-GDS-Implementation-of-Low-Power-Configurable-Multi-Clock-Digital-System/RTL/RegFile/RegFile.v
+L0 1
+OV;L;10.1d;51
+r1
+!s85 0
+31
+!s108 1661373962.744000
+!s107 C:/Users/Compume/Desktop/Digital Design/RTL-to-GDS-Implementation-of-Low-Power-Configurable-Multi-Clock-Digital-System/RTL/RegFile/RegFile.v|
+!s90 -reportprogress|300|-work|work|C:/Users/Compume/Desktop/Digital Design/RTL-to-GDS-Implementation-of-Low-Power-Configurable-Multi-Clock-Digital-System/RTL/RegFile/RegFile.v|
+!s101 -O0
+o-work work -O0
+n@reg@file

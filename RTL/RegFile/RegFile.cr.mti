@@ -1,0 +1,8 @@
+{C:/Users/Compume/Desktop/Digital Design/RTL-to-GDS-Implementation-of-Low-Power-Configurable-Multi-Clock-Digital-System/RTL/RegFile/RegFile.v} {1 {vlog -work work {C:/Users/Compume/Desktop/Digital Design/RTL-to-GDS-Implementation-of-Low-Power-Configurable-Multi-Clock-Digital-System/RTL/RegFile/RegFile.v}
+Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
+-- Compiling module RegFile
+
+Top level modules:
+	RegFile
+
+} {} {}}
