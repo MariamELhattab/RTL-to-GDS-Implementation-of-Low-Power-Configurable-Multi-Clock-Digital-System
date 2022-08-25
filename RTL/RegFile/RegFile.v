@@ -1,18 +1,18 @@
 module RegFile#(parameter DATAWIDTH=8,DEPTH = 16, ADDR = 4  ) 
 
 (
-input CLK,
-input RST,
-input [ADDR-1:0] Address,
-input WrEn,
-input RdEn,
-input [DATAWIDTH-1:0]  WrData,
+input wire CLK,
+input wire RST,
+input wire [ADDR-1:0] Address,
+input wire WrEn,
+input wire RdEn,
+input wire [DATAWIDTH-1:0]  WrData,
 output reg [DATAWIDTH-1:0] RdData,
 output reg RdData_Valid,
-output [DATAWIDTH-1:0] REG0,
-output [DATAWIDTH-1:0] REG1,
-output [DATAWIDTH-1:0] REG2,
-output [DATAWIDTH-1:0] REG3
+output wire[DATAWIDTH-1:0] REG0,
+output wire[DATAWIDTH-1:0] REG1,
+output wire[DATAWIDTH-1:0] REG2,
+output wire[DATAWIDTH-1:0] REG3
 );
 reg [DATAWIDTH-1:0] RegArray [DEPTH-1:0];
 integer I;

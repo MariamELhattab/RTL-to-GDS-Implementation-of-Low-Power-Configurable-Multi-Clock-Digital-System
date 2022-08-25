@@ -1,0 +1,63 @@
+`timescale 100ns / 100ns
+module RegFile_tb#(parameter DATAWIDTH=8,DEPTH = 16, ADDR = 4);
+reg CLK;
+reg RST;
+reg [ADDR-1:0] Address;
+reg WrEn;
+reg RdEn;
+reg [DATAWIDTH-1:0]  WrData;
+reg [DATAWIDTH-1:0] RdData;
+reg RdData_Valid;
+reg [DATAWIDTH-1:0] REG0;
+reg [DATAWIDTH-1:0] REG1;
+reg [DATAWIDTH-1:0] REG2;
+reg [DATAWIDTH-1:0] REG3;
+
+RegFile DUT(
+.CLK(CLK),
+.RST(RST),
+.Address(Address),
+.WrEn(WrEn),
+.RdEn(RdEn),
+.WrData(WrData),
+.RdData(RdData),
+.RdData_Valid(RdData_Valid),
+.REG0(REG0),
+.REG1(REG1),
+.REG2(REG2),
+.REG3(REG3)
+);
+
+initial begin
+CLK = 1'b0;
+forever #100 CLK =~ CLK;
+end
+initial begin
+   RST = 1'b1;
+   WrEn =0;
+   RdEn =0;
+  end
+initial begin
+#100
+WrEn = 1;
+WrData = 'b10001000;
+Address = 'b1010;
+#200
+WrEn =0;
+#100
+WrEn = 1;
+WrData = 'b10001011;
+Address = 'b1111;
+#200
+WrEn =0;
+RdEn =1;
+#100
+Address = 'b1010;
+#100
+RdEn =0;
+#100
+RdEn =1;
+Address = 'b1111;
+end
+
+endmodule
