@@ -1,0 +1,49 @@
+module ALU #(parameter DATAWIDTH=8, FUNC = 4) 
+(
+input 										CLK,
+input 										RST,
+input		[DATAWIDTH-1:0] 				A,
+input		[DATAWIDTH-1:0]					B,
+input		[FUNC-1:0]						ALU_FUNC,
+input										Enable,
+output		[2*DATAWIDTH-1:0]				ALU_OUT,
+output										OUT_VALID
+);
+reg 		[2*DATAWIDTH-1:0]				ALU_OUT_comb;
+reg											OUT_VALID_comb;
+parameter Addition=4'b0000, Subtraction =4'b0001, Multiplication=4'b010,Division=4'b011,AND =4'b100, OR = 4'b101, NAND = 4'b110, NOR = 4'b111, XOR = 4'b1000, XNOR=4'b1001 , CMPEQN = 4'b1010 , CMPGREATER=4'b1011 ,CMPSMALLER=4'b1100 , SHIFTLEFT=4'b1101 ,SHIFTRIGHT = 4'b1110;
+always@(posedge CLK or negedge RST)
+begin
+		if(!RST) begin ALU_OUT<='b0; OUT_VALID<='b1;   end
+		else begin  ALU_OUT<= ALU_OUT_comb; OUT_VALID<=OUT_VALID_comb;    end 
+end
+
+always@(*)
+	begin
+		 if(Enable) begin
+		 OUT_VALID_comb<='b1;
+			case(ALU_FUNC)
+				Addition:					ALU_OUT_comb<= A+B;
+				Subtraction:				ALU_OUT_comb<= A-B;
+				Multiplication:				ALU_OUT_comb<= A*B;
+				Division:					ALU_OUT_comb<= A/B;					
+				AND:						ALU_OUT_comb<= A&B;
+				OR:							ALU_OUT_comb<= A|B;
+				NAND:						ALU_OUT_comb<= !(A&B);
+				NOR:						ALU_OUT_comb<= !(A|B);
+				XOR:						ALU_OUT_comb<= A^B;
+				XNOR:						ALU_OUT_comb<= !(A^B);
+				CMPEQN:						ALU_OUT_comb<= (A===B);
+				CMPGREATER:		begin		if(A>B) ALU_OUT_comb<=2; else  ALU_OUT_comb<=0;  end
+				CMPSMALLER:		begin		if(A<B) ALU_OUT_comb<=3; else  ALU_OUT_comb<=0;  end
+				SHIFTLEFT:					ALU_OUT_comb<= A<<1;
+				SHIFTRIGHT:					ALU_OUT_comb<= A>>1;
+				default:					ALU_OUT_comb<=0; 
+			endcase
+		end
+		else
+		begin
+		OUT_VALID_comb<='b0;
+		end
+	end
+endmodule
